@@ -3,7 +3,7 @@ Simple CORDIC in c
 
 ## Usage:
 
-    cordic <n>
+    gentable <n> > cordic-<n>.h
     
 * `n` should be number of bits in a *signed* word to use for computations.
 
