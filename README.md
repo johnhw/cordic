@@ -1,5 +1,5 @@
 # cordic
-Simple CORDIC in c
+Simple fixed-point CORDIC function generator for C. Generates a single header file implementing the CORDIC sin/cos operation.
 
 ## Usage:
 
@@ -13,7 +13,12 @@ Example:
 
 This will output a header file that will perform the CORDIC sin/cos operation in 24 bit signed fixed point. See `cordic-test.c` for an example of using the generated headerfile.
 
-Note that the generator is hardcoded to use a 2.[n-2] fixed point format, so `n=16` will create code for 2.14 fixed point precision. 
+
+### Fixed point format
+Note that the generator is hardcoded to use a 2.[n-2] fixed point format, so `n=16` will create code for 2.14 fixed point precision, to accept angle inputs in range [-2.0,2.0]. Angle inputs must be in the range (-pi/2, pi/2). For angle values outside of this range, wrap to [-pi, pi] then:
+
+* theta in [pi/2,pi]: theta_corrected = half_pi-(theta-half_pi)
+* and similarly for values -pi---pi/2
 
 ## Precreated
 See `generated/` for a set of CORDIC headers for given a few word widths. 
